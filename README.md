@@ -1,2 +1,12 @@
-# Hangman-Game-C
-A console-based Hangman game implemented in C as a first-year university programming project, demonstrating fundamental concepts such as control structures, functions, arrays, and structured program design.
+# Hangman Game (C Programming)
+
+This repository is created for a first-year university project.
+The project will be developed using the C programming language.
+
+Project development will be updated gradually as the course progresses.
+
+## Group Members
+- 2611684042   Md Ahasanul Hadeen
+- 2611364042   Siam Alam Simanto
+- 2611736642	 Sayeeb Safwan
+- 2612135042	 Muntashir Mahmud
