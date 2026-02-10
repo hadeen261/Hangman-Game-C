@@ -5,7 +5,7 @@ The project will be developed using the C programming language.
 
 Project development will be updated gradually as the course progresses.
 
-## Group Members
+## Group Members (Group-3)
 - 2611684042   Md Ahasanul Hadeen
 - 2611364042   Siam Alam Simanto
 - 2611736642	 Sayeeb Safwan
