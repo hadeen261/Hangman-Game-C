@@ -10,7 +10,3 @@ Project development will be updated gradually as the course progresses.
 - 2611364042   Siam Alam Simanto
 - 2611736642	 Sayeeb Safwan
 - 2612135042	 Muntashir Mahmud
-
-for(int i = 0; i < 10; i++){
-   printf("SHE DOESNT LOVE YOU ANYMORE HADEEN :(");
-   }
