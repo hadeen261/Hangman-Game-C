@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-int main() {
+int main()
+{
 
     printf("Welcome to Hangman!\n");
 
@@ -12,10 +13,11 @@ int main() {
     char guess;
     int i;
 
-    while(chances > 0) {
-
+    while(chances > 0) 
+     {
         printf("\nWord: ");
-        for(i = 0; i < length; i++) {
+        for(i = 0; i < length; i++) 
+        {
             printf("%c ", display[i]);
         }
 
@@ -24,33 +26,46 @@ int main() {
 
         int found = 0;
 
-        for(i = 0; i < length; i++) {
-            if(word[i] == guess) {
+        for(i = 0; i < length; i++)
+            {
+            if(word[i] == guess) 
+            {
                 display[i] = guess;
                 found = 1;
             }
         }
 
-        if(found == 0) {
+        if(found == 0) 
+        {
             chances--;
             printf("Wrong guess! Chances left: %d\n", chances);
         }
 
         int win = 1;
-        for(i = 0; i < length; i++) {
-            if(display[i] == '_') {
+        for(i = 0; i < length; i++) 
+        {
+            if(display[i] == '_') 
+            {
                 win = 0;
             }
         }
 
         if(win == 1) {
-            printf("YOU WIN!\n");
+            printf("Congratulations! YOU WIN!\n");
             break;
         }
     }
 
-    if(chances == 0) {
-        printf("YOU LOSE!\n");
+    if(chances == 0) 
+    {
+        printf("YOU LOSE! \nThe word was :");
+
+        for(i = 0;i < length; i++)
+        {
+            printf("%c",word[i]);
+        }
+        printf("\n");
     }
 }
+
 
