@@ -12,6 +12,7 @@ int main()
     int chances = 5;
     char guess;
     int i;
+    int score = 0;
 
     while(chances > 0) 
      {
@@ -58,6 +59,8 @@ int main()
             printf("%c ", display[i]);
         }
 
+        printf("\nScore: %d\n", score);
+
         printf("\nEnter a letter: ");
         scanf(" %c", &guess);
 
@@ -69,12 +72,14 @@ int main()
             {
                 display[i] = guess;
                 found = 1;
+                score +=10;
             }
         }
 
         if(found == 0) 
         {
             chances--;
+            score -=5;
             printf("Wrong guess! Chances left: %d\n", chances);
         }
 
@@ -110,6 +115,7 @@ int main()
         }
         printf("\n");
     }
+    return 0;
 }
 
 
