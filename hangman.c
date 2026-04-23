@@ -1,14 +1,31 @@
 #include <stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<string.h>
+
 
 int main()
 {
+    
 
-    printf("Welcome to Hangman!\n");
+    printf("WElCOME TO HANGMAN GAME!\n");
 
-     char word[5] = {'a','p','p','l','e'};
-    char display[5] = {'_','_','_','_','_'};
+     char words[][10] = {"apple","grape","mango","lemon","melon","peach","olive","lotus","tulip","daisy"};
+    int totalwords=10;
+    srand(time(0));
+    int ind  = rand() % totalwords;
+    char word[10];
+    strcpy(word,words[ind]);
 
-    int length = 5;
+    int length=strlen(word);
+
+    char display[10];
+
+    for(int i=0;i<length;i++)
+        {
+            display[i]='_';
+        }
+
     int chances = 5;
     char guess;
     int i;
