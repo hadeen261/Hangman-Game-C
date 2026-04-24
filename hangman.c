@@ -2,13 +2,13 @@
 #include<stdlib.h>
 #include<time.h>
 #include<string.h>
-
+#include<ctype.h>
 
 int main()
 {
     
 
-    printf("WElCOME TO HANGMAN GAME!\n");
+    printf("WELCOME TO HANGMAN GAME!\n");
 
      char words[][10] = {"apple","grape","mango","lemon","melon","peach","olive","lotus","tulip","daisy"};
     int totalwords=10;
@@ -30,7 +30,8 @@ int main()
     char guess;
     int i;
     int score = 0;
-
+    char guessed[26]={0};
+    
     while(chances > 0) 
      {
         printf("\n\n  ____\n");
@@ -81,11 +82,27 @@ int main()
         printf("\nEnter a letter: ");
         scanf(" %c", &guess);
 
+        guess=tolower(guess);
+         
+        if(!(guess>='a' && guess <='z'))
+        {
+            printf("Enter a valid character\n");
+            continue;
+        }
+         if(guess>='a' && guess<='z')
+         {
+             if(guessed[guess-'a'])
+             {printf("Already guessed!\n");
+              continue;
+             }
+             guessed[guess-'a']=1;
+         }
+         
         int found = 0;
 
         for(i = 0; i < length; i++)
             {
-            if(word[i] == guess) 
+            if(word[i] == guess && display[i]=='_') 
             {
                 display[i] = guess;
                 found = 1;
@@ -96,7 +113,9 @@ int main()
         if(found == 0) 
         {
             chances--;
-            score -=5;
+
+            if(score>0) score -=5;
+            
             printf("Wrong guess! Chances left: %d\n", chances);
         }
 
