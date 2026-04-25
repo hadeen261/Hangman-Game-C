@@ -4,13 +4,90 @@
 #include<string.h>
 #include<ctype.h>
 
+
+void opening() {
+
+    printf("\n  **********************************\n");
+    printf("  *                                *\n");
+    printf("  *     H A N G M A N  G A M E     *\n");
+    printf("  *                                *\n");
+    printf("  *   Guess the word before you    *\n");
+    printf("  *     run out of chances!        *\n");
+    printf("  *                                *\n");
+    printf("  * Rules:                         *\n");
+    printf("  * - You have 6 chances           *\n");
+    printf("  * - +10 points per correct guess *\n");
+    printf("  * - -5 points per wrong guess    *\n");
+    printf("  *                                *\n");
+    printf("  **********************************\n");
+    printf("\n  Press ENTER to start...");
+    getchar();
+
+}
+
+void hangman(int chances) {
+
+    printf("\n\n  ____\n  |  |\n");
+
+    switch(chances) {
+        case 6:
+            printf("  |\n  |\n  |\n");
+            break;
+        case 5:
+            printf("  |  O\n  |\n  |\n");
+            break;
+        case 4:
+            printf("  |  O\n  |  |\n  |\n");
+            break;
+        case 3:
+            printf("  |  O\n  | /|\n  |\n");
+            break;
+        case 2:
+            printf("  |  O\n  | /|\\\n  |\n");
+            break;
+        case 1:
+            printf("  |  O\n  | /|\\\n  | /\n");
+            break;
+        case 0:
+            printf("  |  O\n  | /|\\\n  | / \\\n");
+            break;
+    }
+
+    printf("__|__\n");
+}
+
+void ending(int score, int win, char word[]) {
+
+    printf("\n\n=====================================\n");
+
+    if (win) {
+        printf("          YOU WON THE GAME! \n");
+        printf("             Great Work!\n");
+    } else {
+        printf("            GAME OVER \n");
+        printf("=====================================\n");
+        printf("         The word was: %s\n", word);
+        printf("         Better luck next time!\n");
+    }
+
+    printf("=====================================\n");
+    printf("         Final Score: %d\n", score);
+    printf("=====================================\n");
+
+}
+
+void clearscreen() {
+    system("cls");
+}
+
+
 int main()
 {
-    
+    opening();
 
     printf("WELCOME TO HANGMAN GAME!\n");
 
-     char words[][10] = {"apple","grape","mango","lemon","melon","peach","olive","lotus","tulip","daisy"};
+    char words[][10] = {"apple","grape","mango","lemon","melon","peach","olive","lotus","tulip","daisy"};
     int totalwords=10;
     srand(time(0));
     int ind  = rand() % totalwords;
@@ -26,50 +103,18 @@ int main()
             display[i]='_';
         }
 
-    int chances = 5;
+    int chances = 6;
     char guess;
     int i;
     int score = 0;
+    int win;
     char guessed[26]={0};
     
     while(chances > 0) 
      {
-        printf("\n\n  ____\n");
-        printf("  |  |\n");
 
-        if(chances == 5)
-        {
-            printf("  |\n");
-            printf("  |\n");
-            printf("  |\n");
-        }
-        else if(chances == 4)
-        {
-            printf("  |  O\n");
-            printf("  |\n");
-            printf("  |\n");
-        }
-        else if(chances == 3)
-        {
-            printf("  |  O\n");
-            printf("  |  |\n");
-            printf("  |\n");
-        }
-        else if(chances == 2)
-        {
-            printf("  |  O\n");
-            printf("  | /|\n");
-            printf("  |\n");
-        }
-        else if(chances == 1)
-        {
-            printf("  |  O\n");
-            printf("  | /|\\\n");
-            printf("  |\n");
-        }
-
-        printf("__|__\n");
-
+         clearscreen();
+         hangman(chances);
          
         printf("\nWord: ");
         for(i = 0; i < length; i++) 
@@ -87,6 +132,8 @@ int main()
         if(!(guess>='a' && guess <='z'))
         {
             printf("Enter a valid character\n");
+            getchar();
+            getchar();
             continue;
         }
          if(guess>='a' && guess<='z')
@@ -119,7 +166,7 @@ int main()
             printf("Wrong guess! Chances left: %d\n", chances);
         }
 
-        int win = 1;
+        win = 1;
         for(i = 0; i < length; i++) 
         {
             if(display[i] == '_') 
@@ -129,28 +176,24 @@ int main()
         }
 
         if(win == 1) {
-            printf("Congratulations! YOU WIN!\n");
             break;
         }
     }
 
-    if(chances == 0) 
+    if(win) 
     {
-        printf("\n  ____\n");
-        printf("  |  |\n");
-        printf("  |  O\n");
-        printf("  | /|\\\n");
-        printf("  | / \\\n");
-        printf("__|__\n");
-        
-        printf("YOU LOSE! \nThe word was :");
-
-        for(i = 0;i < length; i++)
-        {
-            printf("%c",word[i]);
-        }
-        printf("\n");
+        printf("Congratulations!\nYOU WIN!\n");
     }
+    else {
+
+        clearscreen();
+        hangman(0);
+        printf("YOU LOSE!\n");
+    }
+
+    ending(score, win, word);
+
+    
     return 0;
 }
 
