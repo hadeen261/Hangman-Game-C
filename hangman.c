@@ -27,33 +27,34 @@ void opening() {
 
 void hangman(int chances) {
 
-    printf("\n\n  ____\n  |  |\n");
+    printf("\n\n      _______\n");
+    printf("     |/      |\n");
 
     switch(chances) {
         case 6:
-            printf("  |\n  |\n  |\n");
+            printf("     |\n     |\n     |\n     |\n");
             break;
         case 5:
-            printf("  |  O\n  |\n  |\n");
+            printf("     |      ( )\n     |\n     |\n     |\n");
             break;
         case 4:
-            printf("  |  O\n  |  |\n  |\n");
+            printf("     |      ( )\n     |       |\n     |       |\n     |\n");
             break;
         case 3:
-            printf("  |  O\n  | /|\n  |\n");
+            printf("     |      ( )\n     |      /|\n     |       |\n     |\n");
             break;
         case 2:
-            printf("  |  O\n  | /|\\\n  |\n");
+            printf("     |      ( )\n     |      /|\\\n     |       |\n     |\n");
             break;
         case 1:
-            printf("  |  O\n  | /|\\\n  | /\n");
+            printf("     |      ( )\n     |      /|\\\n     |       |\n     |      /\n");
             break;
         case 0:
-            printf("  |  O\n  | /|\\\n  | / \\\n");
+            printf("     |      ( )\n     |      /|\\\n     |       |\n     |      / \\\n");
             break;
     }
 
-    printf("__|__\n");
+    printf(" ____|____\n");
 }
 
 void ending(int score, int win, char word[]) {
