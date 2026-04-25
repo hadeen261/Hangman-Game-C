@@ -86,6 +86,9 @@ int main()
 {
     opening();
 
+    char playAgain;
+    do {
+
     printf("WELCOME TO HANGMAN GAME!\n");
 
     char words[][10] = {"apple","grape","mango","lemon","melon","peach","olive","lotus","tulip","daisy"};
@@ -193,6 +196,14 @@ int main()
     }
 
     ending(score, win, word);
+
+    printf("\n\nDo you want to play again? (y/n): ");
+    scanf(" %c", &playAgain);
+    playAgain = tolower(playAgain);
+
+    } while(playAgain == 'y');
+
+    printf("\nThanks for playing! Goodbye!\n");
 
     
     return 0;
