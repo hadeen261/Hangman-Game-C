@@ -57,7 +57,7 @@ void hangman(int chances) {
     printf(" ____|____\n");
 }
 
-void ending(int score, int win, char word[]) {
+void ending(int score, int win, char word[], int highScore) {
 
     printf("\n\n=====================================\n");
 
@@ -87,6 +87,7 @@ int main()
     opening();
 
     char playAgain;
+    int highScore = 0;
     do {
 
     printf("WELCOME TO HANGMAN GAME!\n");
@@ -125,8 +126,21 @@ int main()
         {
             printf("%c ", display[i]);
         }
+        
+        printf("\n\nGuessed Letters: ");
+        int anyGuessed = 0;
+        for(i = 0; i < 26; i++) {
+        if(guessed[i]) {
+        printf("'%c' ", 'a' + i);
+        anyGuessed = 1;
+            }
+        }
+        if(!anyGuessed) {
+            printf("none");
+        }
 
         printf("\nScore: %d\n", score);
+        printf("High Score: %d\n", highScore);
 
         printf("\nEnter a letter: ");
         scanf(" %c", &guess);
@@ -194,8 +208,13 @@ int main()
         hangman(0);
         printf("YOU LOSE!\n");
     }
+        
+        if(score > highScore) {
+        highScore = score;
+        printf("\n  *** NEW HIGH SCORE: %d ***\n", highScore);
+    }
 
-    ending(score, win, word);
+    ending(score, win, word, highScore);
 
     printf("\n\nDo you want to play again? (y/n): ");
     scanf(" %c", &playAgain);
