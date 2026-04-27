@@ -158,6 +158,8 @@ int main()
          {
              if(guessed[guess-'a'])
              {printf("Already guessed!\n");
+              getchar();
+              getchar();
               continue;
              }
              guessed[guess-'a']=1;
