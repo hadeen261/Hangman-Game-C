@@ -141,6 +141,7 @@ int main()
 
         printf("\nScore: %d\n", score);
         printf("High Score: %d\n", highScore);
+        printf("Chances left: %d\n", chances);
 
         printf("\nEnter a letter: ");
         scanf(" %c", &guess);
@@ -183,7 +184,6 @@ int main()
 
             if(score>0) score -=5;
             
-            printf("Wrong guess! Chances left: %d\n", chances);
         }
 
         win = 1;
