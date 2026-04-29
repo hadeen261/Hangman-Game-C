@@ -152,6 +152,7 @@ int main()
         if(!(guess>='a' && guess <='z'))
         {
             printf("Enter a valid character\n");
+            printf("Press Enter to Continue...");
             getchar();
             getchar();
             continue;
@@ -160,6 +161,7 @@ int main()
          {
              if(guessed[guess-'a'])
              {printf("Already guessed!\n");
+              printf("Press Enter to Continue...");
               getchar();
               getchar();
               continue;
