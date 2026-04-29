@@ -1,1 +1,26 @@
+# Requirements for Hangman Game (main.c)
+ 
+## Language
+- C 
+ 
+## Compiler
+- GCC (MinGW on Windows, or GCC on Linux/macOS)
+  - Windows: https://www.mingw-w64.org/
+
+ 
+## Standard Libraries Used (no external installs needed)
+- stdio.h   — Input/output (printf, scanf)
+- stdlib.h  — General utilities (system, srand, rand)
+- time.h    — Random seed generation (time)
+- string.h  — String operations (strlen, strcpy)
+- ctype.h   — Character handling (tolower, isalpha)
+ 
+## Platform Notes
+- The clearscreen() function uses system("cls"), which works on Windows.
+ 
+## How to Compile
+  gcc main.c -o hangman
+ 
+## How to Run
+  Windows : hangman.exe
 
