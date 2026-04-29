@@ -4,7 +4,7 @@
 #include<string.h>
 #include<ctype.h>
 
-
+//Simanto
 void opening() {
 
     printf("\n  **********************************\n");
@@ -92,6 +92,7 @@ int main()
 
     printf("WELCOME TO HANGMAN GAME!\n");
 
+//safwan
     char words[][15] = {"lotus","tulip","daisy","aster","lilae","banana","orange","papaya","cherry","tomato","popcorn","hotcake","burgers","buritto","pretzel"};
     int totalwords=15;
     srand(time(0));
@@ -109,19 +110,21 @@ int main()
         }
         display[length]='\0';
 
+        
     int chances = 6;
     char guess;
     int i;
     int score = 0;
     int win;
     char guessed[26]={0};
-    
+
+        
     while(chances > 0) 
      {
 
          clearscreen();
          hangman(chances);
-         
+ //hadeen     
         printf("\nWord: ");
         for(i = 0; i < length; i++) 
         {
@@ -146,7 +149,7 @@ int main()
 
         printf("\nEnter a letter: ");
         scanf(" %c", &guess);
-
+//tamim
         guess=tolower(guess);
          
         if(!(guess>='a' && guess <='z'))
@@ -168,7 +171,7 @@ int main()
              }
              guessed[guess-'a']=1;
          }
-         
+   //hadeen      
         int found = 0;
 
         for(i = 0; i < length; i++)
