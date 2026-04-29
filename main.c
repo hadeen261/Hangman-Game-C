@@ -92,21 +92,22 @@ int main()
 
     printf("WELCOME TO HANGMAN GAME!\n");
 
-    char words[][10] = {"apple","grape","mango","lemon","melon","peach","olive","lotus","tulip","daisy"};
-    int totalwords=10;
+    char words[][15] = {"lotus","tulip","daisy","aster","lilae","banana","orange","papaya","cherry","tomato","popcorn","hotcake","burgers","buritto","pretzel"};
+    int totalwords=15;
     srand(time(0));
     int ind  = rand() % totalwords;
-    char word[10];
+    char word[20];
     strcpy(word,words[ind]);
 
     int length=strlen(word);
 
-    char display[10];
+    char display[20];
 
     for(int i=0;i<length;i++)
         {
             display[i]='_';
         }
+        display[length]='\0';
 
     int chances = 6;
     char guess;
